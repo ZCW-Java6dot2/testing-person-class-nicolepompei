@@ -69,6 +69,83 @@ public class TestPerson {
     }
 
     @Test
+    public void testConstructorWithAllFields(){
+        String expectedName = "Pompy";
+        int expectedAge = 26;
+        boolean expectedIsFemale = true;
+        String expectedEyeColor = "Green";
+        String expectedHairColor = "Brown";
+        String expectedEthnicity = "Caucasian";
+        boolean expectedWearsGlasses = false;
+
+        Person person = new Person(expectedName, expectedAge, expectedIsFemale, expectedEyeColor, expectedHairColor, expectedEthnicity, expectedWearsGlasses);
+
+        String actualName = person.getName();
+        int actualAge = person.getAge();
+        boolean actualIsFemale = person.getIsFemale();
+        String actualEyeColor = person.getEyeColor();
+        String actualHairColor = person.getHairColor();
+        String actualEthnicity = person.getEthnicity();
+        boolean actualWearsGlasses = person.getWearsGlasses();
+
+        Assert.assertEquals(expectedName, actualName);
+        Assert.assertEquals(expectedAge, actualAge);
+        Assert.assertEquals(expectedIsFemale, actualIsFemale);
+        Assert.assertEquals(expectedEyeColor, actualEyeColor);
+        Assert.assertEquals(expectedHairColor, actualHairColor);
+        Assert.assertEquals(expectedEthnicity, actualEthnicity);
+        Assert.assertEquals(expectedWearsGlasses, actualWearsGlasses);
+
+
+    }
+
+    @Test
+    public void testConstructorNameAgeIsFemaleHairColorWearsGlasses(){
+        String expectedName = "Pompy";
+        int expectedAge = 26;
+        boolean expectedIsFemale = true;
+        String expectedHairColor = "brown";
+        boolean expectedWearsGlasses = false;
+
+        Person person = new Person(expectedName, expectedAge, expectedIsFemale, expectedHairColor, expectedWearsGlasses);
+
+        String actualName = person.getName();
+        int actualAge = person.getAge();
+        boolean actualIsFemale = person.getIsFemale();
+        String actualHairColor = person.getHairColor();
+        boolean actualWearsGlasses = person.getWearsGlasses();
+
+        Assert.assertEquals(expectedName, actualName);
+        Assert.assertEquals(expectedAge, actualAge);
+        Assert.assertEquals(expectedIsFemale, actualIsFemale);
+        Assert.assertEquals(expectedHairColor, actualHairColor);
+        Assert.assertEquals(expectedWearsGlasses, actualWearsGlasses);
+    }
+
+    @Test
+    public void testConstructorNameAgeIsFemaleEyeColorHairColor(){
+        String expectedName = "Pompy";
+        int expectedAge = 26;
+        boolean expectedIsFemale = true;
+        String expectedEyeColor = "green";
+        String expectedHairColor = "brown";
+
+        Person person = new Person(expectedName, expectedAge, expectedIsFemale, expectedEyeColor, expectedHairColor);
+
+        String actualName = person.getName();
+        int actualAge = person.getAge();
+        boolean actualIsFemale = person.getIsFemale();
+        String actualEyeColor = person.getEyeColor();
+        String actualHairColor = person.getHairColor();
+
+        Assert.assertEquals(expectedName, actualName);
+        Assert.assertEquals(expectedAge, actualAge);
+        Assert.assertEquals(expectedIsFemale, actualIsFemale);
+        Assert.assertEquals(expectedEyeColor, actualEyeColor);
+        Assert.assertEquals(expectedHairColor, actualHairColor);
+    }
+
+    @Test
     public void testSetName() {
         // Given
         Person person = new Person();
@@ -93,6 +170,62 @@ public class TestPerson {
 
         // Then
         Integer actual = person.getAge();
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testSetIsFemale(){
+        Person person = new Person();
+        boolean expected = true;
+
+        person.setIsFemale(expected);
+
+        boolean actual = person.getIsFemale();
+        Assert.assertEquals(expected, actual);
+
+    }
+
+    @Test
+    public void testSetEyeColor(){
+        Person person = new Person();
+        String expected = "blue";
+
+        person.setEyeColor(expected);
+
+        String actual = person.getEyeColor();
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testSetHairColor(){
+        Person person = new Person();
+        String expected = "brown";
+
+        person.setHairColor(expected);
+
+        String actual = person.getHairColor();
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testSetEthnicity(){
+        Person person = new Person();
+        String expected = "Caucasian";
+
+        person.setEthnicity(expected);
+
+        String actual = person.getEthnicity();
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testWearsGlasses(){
+        Person person = new Person();
+        Boolean expected = false;
+
+        person.setWearsGlasses(expected);
+
+        boolean actual = person.getWearsGlasses();
         Assert.assertEquals(expected, actual);
     }
 }
